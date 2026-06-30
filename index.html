@@ -9,8 +9,8 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     
     <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -67,7 +67,9 @@
                         "background": "#f8f9ff",
                         "surface-container-low": "#eef4ff",
                         "on-tertiary-fixed": "#341100",
-                        "error-container": "#ffdad6"
+                        "error-container": "#ffdad6",
+                        "whatsapp": "#25D366",
+                        "whatsapp-hover": "#1ebd5a"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.25rem",
@@ -150,6 +152,26 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
+        
+        /* Custom Input Icon Adjustments */
+        .input-icon-wrapper input,
+        .input-icon-wrapper select {
+            padding-left: 2.75rem;
+        }
+        .input-icon-wrapper .left-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #737686;
+            font-size: 20px;
+            pointer-events: none;
+            transition: color 0.2s;
+        }
+        .input-icon-wrapper input:focus ~ .left-icon,
+        .input-icon-wrapper select:focus ~ .left-icon {
+            color: #003fb1;
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
@@ -158,8 +180,7 @@
 <header class="bg-surface/90 backdrop-blur-md dark:bg-surface-container-lowest/90 border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none docked full-width top-0 sticky z-50 transition-all duration-300">
     <nav class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-[72px]">
         <div class="flex items-center gap-sm cursor-pointer hover:opacity-80 transition-opacity">
-            <img alt="90 Plus Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLtXUy2gSpCb9upg21zHI1s-Jaw80-s1qQnchEF7A3bjtDRnSqQQTbx5I15IcgeUwX1vT9GPqMrSjZoDsXuwf91wUmFWgUuS_IXTyXJSsc8nafNPW-rYkOds4wSx-zByDXK-lLTcLF0PAkKynbzWNQOZANlYKzNrw9MQ4aD3kdmo-dO3AM83OY7u3wjumC7k2TOGVtOC2woJ0maenSVnjR4DwrGyjPBP673T69KsfVrbCNHzno0AydqUz0o"/>
-            <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">90 Plus</span>
+            <img alt="90 Plus Logo" class="h-14 w-auto" src="https://mytuitionapp.com/wp-content/uploads/2022/07/logo.png"/>
         </div>
         <div class="hidden md:flex items-center gap-lg">
             <a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-md" href="#why-us">Why Us</a>
@@ -167,7 +188,7 @@
             <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md" href="#testimonials">Testimonials</a>
             <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md" href="#locations">Locations</a>
         </div>
-        <button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-95 duration-150">
+        <button class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-md py-sm rounded-lg font-label-md hover:from-orange-600 hover:to-orange-700 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-95 duration-150 border border-orange-400/50">
             Enroll Now
         </button>
     </nav>
@@ -194,40 +215,90 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Form Area -->
         <div class="lg:w-5/12 w-full fade-up" style="transition-delay: 200ms;">
-            <div class="bg-white p-lg rounded-xl shadow-2xl border border-outline-variant transform hover:scale-[1.02] transition-transform duration-300">
-                <h3 class="font-headline-md text-primary mb-sm">Book a free class or talk to us first</h3>
-                <p class="text-body-md text-on-surface-variant mb-lg">Our Bahrain counsellor responds within 2 hours.</p>
-                <form class="grid grid-cols-1 md:grid-cols-2 gap-md">
-                    <div>
-                        <label class="block text-label-sm mb-xs text-on-surface">Parent's Name</label>
-                        <input class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Enter parent's name" type="text"/>
+            <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-surface-variant transform hover:scale-[1.01] transition-transform duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10"></div>
+                
+                <div class="mb-8">
+                    <span class="inline-block px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-wider rounded-full mb-3">Limited Spots</span>
+                    <h3 class="font-headline-lg text-primary leading-tight mb-1 text-[28px] font-bold">Book a Free Trial</h3>
+                    <p class="text-body-md text-on-surface-variant">Our Bahrain counsellor responds <span class="font-semibold text-primary">instantly</span>.</p>
+                </div>
+
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-x-md gap-y-5">
+                    
+                    <!-- Student's Name -->
+                    <div class="relative">
+                        <label class="block text-label-sm font-semibold text-on-surface-variant mb-1.5 ml-1">Student's Name</label>
+                        <div class="relative input-icon-wrapper">
+                            <input class="w-full bg-surface-bright border border-outline-variant/60 rounded-xl py-2.5 pr-4 text-body-md hover:border-primary/40 focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none placeholder:text-outline-variant/80" placeholder="e.g. Aarav Kumar" type="text"/>
+                            <span class="material-symbols-outlined left-icon">badge</span>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-label-sm mb-xs text-on-surface">Student's Name</label>
-                        <input class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Enter student's name" type="text"/>
+                    
+                    <!-- Parent's Number -->
+                    <div class="relative">
+                        <label class="block text-label-sm font-semibold text-on-surface-variant mb-1.5 ml-1">Parent's Number</label>
+                        <div class="relative input-icon-wrapper">
+                            <input class="w-full bg-surface-bright border border-outline-variant/60 rounded-xl py-2.5 pr-4 text-body-md hover:border-primary/40 focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none placeholder:text-outline-variant/80" placeholder="+973 3XXX XXXX" type="tel"/>
+                            <span class="material-symbols-outlined left-icon">call</span>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-label-sm mb-xs text-on-surface">Child's Class</label>
-                        <select class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none">
-                            <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option>
-                        </select>
+                    
+                    <!-- Child's Class -->
+                    <div class="relative">
+                        <label class="block text-label-sm font-semibold text-on-surface-variant mb-1.5 ml-1">Class</label>
+                        <div class="relative input-icon-wrapper">
+                            <select class="w-full bg-surface-bright border border-outline-variant/60 rounded-xl py-2.5 pr-4 text-body-md hover:border-primary/40 focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select Class</option>
+                                <option>Class 6</option>
+                                <option>Class 7</option>
+                                <option>Class 8</option>
+                                <option>Class 9</option>
+                                <option>Class 10</option>
+                            </select>
+                            <span class="material-symbols-outlined left-icon">auto_stories</span>
+                            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none" style="left: auto;">expand_more</span>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-label-sm mb-xs text-on-surface">WhatsApp Number</label>
-                        <input class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="+973 1234 5678" type="tel"/>
+
+                    <!-- Syllabus -->
+                    <div class="relative">
+                        <label class="block text-label-sm font-semibold text-on-surface-variant mb-1.5 ml-1">Syllabus</label>
+                        <div class="relative input-icon-wrapper">
+                            <select class="w-full bg-surface-bright border border-outline-variant/60 rounded-xl py-2.5 pr-4 text-body-md hover:border-primary/40 focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none appearance-none cursor-pointer">
+                                <option selected>CBSE</option>
+                                <option>ICSE</option>
+                                <option>Kerala State Board</option>
+                                <option>Other</option>
+                            </select>
+                            <span class="material-symbols-outlined left-icon">menu_book</span>
+                            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none" style="left: auto;">expand_more</span>
+                        </div>
                     </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-label-sm mb-xs text-on-surface">What would you like?</label>
-                        <select class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none">
-                            <option>Book a free trial class</option><option>Talk to a counsellor first</option>
-                        </select>
+                    
+                    <button class="md:col-span-2 w-full mt-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3.5 rounded-xl font-headline-md text-[18px] hover:from-orange-600 hover:to-orange-700 shadow-[0_8px_16px_-6px_rgba(249,115,22,0.4)] hover:shadow-[0_12px_20px_-6px_rgba(249,115,22,0.6)] hover:-translate-y-0.5 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group border border-orange-400/50">
+                        Book a demo now
+                        <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                    
+                    <div class="md:col-span-2 flex items-center justify-center gap-1.5 mt-1 opacity-70">
+                        <span class="material-symbols-outlined text-[14px]">lock</span>
+                        <p class="text-[10px] text-center text-on-surface-variant">Your information is secure. By submitting, you agree to be contacted on WhatsApp.</p>
                     </div>
-                    <button class="md:col-span-2 w-full bg-[#f97316] text-white py-md rounded-lg font-headline-md hover:bg-[#ea580c] hover:shadow-lg transition-all active:scale-95">Request Free Trial / Callback →</button>
-                    <p class="md:col-span-2 text-[10px] text-center text-on-surface-variant mt-sm">By submitting, you agree to be contacted on WhatsApp. Protected by reCAPTCHA.</p>
                 </form>
-                <div class="mt-md pt-md border-t border-outline-variant text-center">
-                    <a class="inline-flex items-center gap-xs text-primary font-label-md hover:text-primary-container transition-colors" href="#">OR 💬 Chat with us on WhatsApp</a>
+                
+                <!-- WhatsApp specific CTA Block -->
+                <div class="mt-6 pt-6 border-t border-outline-variant/50 text-center">
+                    <p class="text-label-sm text-on-surface-variant mb-3">Prefer messaging?</p>
+                    <a class="inline-flex items-center justify-center gap-2 bg-whatsapp text-white w-full py-3.5 rounded-xl font-headline-md text-[16px] hover:bg-whatsapp-hover shadow-[0_8px_16px_-6px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_20px_-6px_rgba(37,211,102,0.6)] hover:-translate-y-0.5 transition-all active:scale-[0.98] group" href="#">
+                        <svg class="w-5 h-5 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                        </svg>
+                        Chat on WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
@@ -243,7 +314,7 @@
         <div class="flex flex-col lg:flex-row gap-lg items-center">
             <div class="lg:w-1/2 relative group">
                 <div class="organic-shape bg-primary/20 absolute -inset-6 z-0 transition-all duration-500 group-hover:bg-primary/30"></div>
-                <img alt="CBSE students learning online" class="relative z-10 w-full rounded-2xl shadow-lg border border-outline-variant transform transition-transform duration-500 group-hover:scale-[1.02]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuI0suj0aZ_wYDBmsXUTCqZ5oL1xBitQhZICFOV8LBmkOn5mN0UwcWWkshC_Ax1JOHgnJNDyM5Wjo2sHvl5Jec5HxHDkiHpFjMLu-AM5cT-6afXNRZ6FOYxysUzKz2SphFIe7y8jzK8tYkLK-BjROhnJE0bjJB3kD8k3UPVa3vfOpDrCU3OjaaFSKcCrUgO_PaxkfyPLLwUPO1_taCnN5nfGoUx9WFGkpbVZN7X7Sz-O3HCP2hJ46dlkO_mdYUL67TSwcH-goa8vU"/>
+                <img alt="CBSE students learning online" class="relative z-10 w-full rounded-2xl shadow-lg border border-outline-variant transform transition-transform duration-500 group-hover:scale-[1.02]" src="./canvas.png"/>
             </div>
             <div class="lg:w-1/2">
                 <h4 class="text-tertiary font-label-md mb-sm uppercase tracking-widest">Focused on Excellence</h4>
@@ -334,7 +405,6 @@
             <p class="text-body-md text-on-surface-variant">The most structured learning ecosystem for CBSE students.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md lg:gap-lg">
-            <!-- Points mapping -->
             <div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-md">
                     <span class="material-symbols-outlined">menu_book</span>
@@ -353,7 +423,7 @@
                 <div class="w-12 h-12 bg-tertiary/10 text-tertiary rounded-lg flex items-center justify-center mb-md">
                     <span class="material-symbols-outlined">edit_note</span>
                 </div>
-                <h3 class="font-headline-md mb-sm">Online Exams &amp; Tracking</h3>
+                <h3 class="font-headline-md mb-sm">Online Exams & Tracking</h3>
                 <p class="text-body-md text-on-surface-variant">Regular written exams held online with detailed performance tracking for parents and students.</p>
             </div>
             <div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
@@ -396,13 +466,13 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-lg text-center" id="counter-section">
             <div class="group">
                 <div class="text-display text-white mb-xs transition-transform duration-500 group-hover:scale-110 font-bold">
-                    <span class="counter" data-target="69">0</span>K+
+                    <span class="counter" data-target="60">0</span>K+
                 </div>
                 <div class="font-label-md text-white/80 uppercase tracking-widest">CBSE Students</div>
             </div>
             <div class="group">
                 <div class="text-display text-white mb-xs transition-transform duration-500 group-hover:scale-110 font-bold">
-                    <span class="counter" data-target="2.7" data-is-float="true">0</span>K
+                    <span class="counter" data-target="2.7" data-is-float="true">2.7</span>K
                 </div>
                 <div class="font-label-md text-white/80 uppercase tracking-widest">Classes Completed</div>
             </div>
@@ -414,7 +484,7 @@
             </div>
             <div class="group">
                 <div class="text-display text-white mb-xs transition-transform duration-500 group-hover:scale-110 font-bold">
-                    <span class="counter" data-target="50">0</span>+
+                    <span class="counter" data-target="250">0</span>+
                 </div>
                 <div class="font-label-md text-white/80 uppercase tracking-widest">CBSE Experts</div>
             </div>
@@ -422,104 +492,84 @@
     </div>
 </section>
 
-<!-- Testimonials Section (Swiper Slider) -->
+<!-- Testimonials Section (Swiper Slider) - REDESIGNED WITH METRICS -->
 <section class="bg-primary text-on-primary py-xl pb-24 relative overflow-hidden fade-up" id="testimonials">
     <div class="max-w-container-max mx-auto px-gutter relative">
         <h2 class="font-headline-lg text-center mb-xl text-display">Success Stories</h2>
         
-        <!-- Swiper Container -->
         <div class="swiper testimonialsSwiper">
             <div class="swiper-wrapper">
+                
                 <!-- Testimonial 1 -->
                 <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
                     <div>
-                        <div class="flex gap-xs text-tertiary-fixed-dim mb-md">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <!-- Metric Indicator -->
+                        <div class="flex items-center gap-3 mb-6 bg-white/10 w-max px-4 py-2 rounded-lg border border-white/20">
+                            <span class="line-through text-white/60 text-[20px] font-bold">61%</span>
+                            <span class="material-symbols-outlined text-secondary-fixed">arrow_right_alt</span>
+                            <span class="text-secondary-fixed text-[28px] leading-none font-bold">88%</span>
+                            <span class="material-symbols-outlined text-secondary-fixed text-lg ml-1">trending_up</span>
                         </div>
-                        <p class="text-body-md mb-lg italic">"90 Plus My Tuition App made Maths so easy for my 8th grader. His confidence in solving algebraic equations has doubled since he joined."</p>
+                        <p class="text-body-lg mb-lg italic font-medium leading-relaxed">"He used to dread Maths exams. Now he asks to attend revision class early."</p>
                     </div>
-                    <div class="flex items-center gap-md mt-auto">
-                        <div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden">
-                            <img alt="Sarah Jenkins" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoFg_Akzzk_bAZLL0l_F14sPnEliatPu8zqaUctqT3XL4fy42v9gFLMoHNQome6FsxfGp1YcwksVCK74awc8bbujs1qaGm6lp3mbzXs0o6xY3yZ9RUkfBcZGtSXYqkF_Zl6sCSH6Jyf1df8K7s09B4WKRfozdCuy79pe4yrTMr1RKNum6Udu-0dEwXp68IWWbldbbwyD1Fs2qjL6YTuZfdfGbjtTDuxDZMHHZuZjF2V8vbR7x1YpWNwJG3zis-6_QdMQx5B0paKK8"/>
-                        </div>
-                        <div>
-                            <p class="font-headline-md text-body-md">Sarah Jenkins</p>
-                            <p class="text-label-sm opacity-80">Parent of 8th Grade Student</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
-                    <div>
-                        <div class="flex gap-xs text-tertiary-fixed-dim mb-md">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                        </div>
-                        <p class="text-body-md mb-lg italic">"I was struggling with Science, but the live experiments shown on the app helped me visualize everything. I topped my 10th grade mid-terms!"</p>
-                    </div>
-                    <div class="flex items-center gap-md mt-auto">
-                        <div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden">
-                            <img alt="David Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgHAp7Pkj-GBz8KOCHbP1FyJxKtxq8aQWsc4s3iKbKqkdPqSXiafD3j-tQXQFivdWbxUJTl2icUvCpmWCFi-D5B83n-IkVfFUnlm30DbwyslugWnWqPZbT8t-Kg3TwgA70CrKy5UcXL2eF89Zo2OT0BJjfeACL3hfMJE4nFQR6Tzd7REWRy69gUOrErVc-tarOmKSFjveT0R7U9_pEUpvqNf8EOcVKxXEw896Rj3owmDyYgJFhg_-xn0kx0FDfgbKQsm3oCd7euUM"/>
-                        </div>
-                        <div>
-                            <p class="font-headline-md text-body-md">David Chen</p>
-                            <p class="text-label-sm opacity-80">10th Grade Student</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
-                    <div>
-                        <div class="flex gap-xs text-tertiary-fixed-dim mb-md">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                        </div>
-                        <p class="text-body-md mb-lg italic">"Finding a good tutor was hard until we found 90 Plus. My son actually looks forward to lessons now. Highly recommended."</p>
-                    </div>
-                    <div class="flex items-center gap-md mt-auto">
-                        <div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden">
-                            <img alt="Mark Thompson" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx_EddMKTmmnZWiHGW2M7EG_Cxsy614Gj1JWGNRtYNfuYAt2w7yiQ9DtVG50fSL7fqqEAjOK57nHqiYB7tfzuGOGhabcy6GxC-RsANfHbDbCgbRK85Z1uY-rxdr5IG73Z-iBL5dB9BUlZ5hd9_czXBceH3kEuQmrBqfi9pjU4EmKaf_vFmy1NBUaC45oPS9QZSpnN2SxndtTzlil-Rex8TD2ggaKsPkO3ex_qoHU59VMghjpBWv07byToDWPCzaTeo6533iilKa2k"/>
-                        </div>
-                        <div>
-                            <p class="font-headline-md text-body-md">Mark Thompson</p>
-                            <p class="text-label-sm opacity-80">Parent of 7th Grade Student</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 4 (Extra for sliding) -->
-                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
-                    <div>
-                        <div class="flex gap-xs text-tertiary-fixed-dim mb-md">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-                        </div>
-                        <p class="text-body-md mb-lg italic">"The double power tuition method works wonders. Revising concepts right after learning them solidified my basics in Physics."</p>
-                    </div>
-                    <div class="flex items-center gap-md mt-auto">
-                        <div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden bg-white/20 flex items-center justify-center">
+                    <div class="flex items-center gap-md mt-auto pt-4 border-t border-white/10">
+                        <div class="w-12 h-12 rounded-full border-2 border-white/30 overflow-hidden bg-white/20 flex items-center justify-center shrink-0">
                             <span class="material-symbols-outlined text-white">person</span>
                         </div>
                         <div>
-                            <p class="font-headline-md text-body-md">Aarav Sharma</p>
-                            <p class="text-label-sm opacity-80">12th Grade Student</p>
+                            <p class="font-headline-md text-[18px] leading-tight">Arjun R.</p>
+                            <p class="text-[12px] opacity-80 mt-0.5">Class 9, Mathematics<br/>CBSE, Bahrain · 3 months on 90+</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Testimonial 2 -->
+                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
+                    <div>
+                        <!-- Metric Indicator -->
+                        <div class="flex items-center gap-3 mb-6 bg-white/10 w-max px-4 py-2 rounded-lg border border-white/20">
+                            <span class="line-through text-white/60 text-[20px] font-bold">54%</span>
+                            <span class="material-symbols-outlined text-secondary-fixed">arrow_right_alt</span>
+                            <span class="text-secondary-fixed text-[28px] leading-none font-bold">79%</span>
+                            <span class="material-symbols-outlined text-secondary-fixed text-lg ml-1">trending_up</span>
+                        </div>
+                        <p class="text-body-lg mb-lg italic font-medium leading-relaxed">"The chapter-wise model meant she only focused on what she was actually missing."</p>
+                    </div>
+                    <div class="flex items-center gap-md mt-auto pt-4 border-t border-white/10">
+                        <div class="w-12 h-12 rounded-full border-2 border-white/30 overflow-hidden bg-white/20 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-white">person</span>
+                        </div>
+                        <div>
+                            <p class="font-headline-md text-[18px] leading-tight">Fathima S.</p>
+                            <p class="text-[12px] opacity-80 mt-0.5">Class 7, Science<br/>CBSE, Manama · 4 months on 90+</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
+                    <div>
+                        <!-- Metric Indicator -->
+                        <div class="flex items-center gap-3 mb-6 bg-white/10 w-max px-4 py-2 rounded-lg border border-white/20">
+                            <span class="line-through text-white/60 text-[20px] font-bold">68%</span>
+                            <span class="material-symbols-outlined text-secondary-fixed">arrow_right_alt</span>
+                            <span class="text-secondary-fixed text-[28px] leading-none font-bold">91%</span>
+                            <span class="material-symbols-outlined text-secondary-fixed text-lg ml-1">trending_up</span>
+                        </div>
+                        <p class="text-body-lg mb-lg italic font-medium leading-relaxed">"Daily exams kept him accountable in a way school homework never did."</p>
+                    </div>
+                    <div class="flex items-center gap-md mt-auto pt-4 border-t border-white/10">
+                        <div class="w-12 h-12 rounded-full border-2 border-white/30 overflow-hidden bg-white/20 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-white">person</span>
+                        </div>
+                        <div>
+                            <p class="font-headline-md text-[18px] leading-tight">Nihal K.</p>
+                            <p class="text-[12px] opacity-80 mt-0.5">Class 10, Physics<br/>CBSE, Bahrain · 5 months on 90+</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!-- Pagination & Navigation -->
             <div class="swiper-pagination mt-8"></div>
         </div>
     </div>
@@ -538,7 +588,7 @@
                         <div>
                             <h4 class="font-headline-md text-primary">Bahrain Digital Support Hub</h4>
                             <p class="text-body-md mt-xs">Manama Tower, Diplomatic Area, Floor 6, Manama, Kingdom of Bahrain.</p>
-                            <p class="text-label-sm font-bold text-primary mt-sm">+973 17XX XXXX</p>
+                            <p class="text-label-sm font-bold text-primary mt-sm">+973 3725 5933</p>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-md opacity-80">
@@ -562,11 +612,10 @@
 
 <!-- Footer -->
 <footer class="bg-surface-container-highest dark:bg-surface-container-lowest border-t border-outline-variant">
-    <div class="max-w-container-max mx-auto px-gutter py-xl grid grid-cols-1 md:grid-cols-4 gap-lg">
-        <div class="col-span-1 md:col-span-1">
+    <div class="max-w-container-max mx-auto px-gutter py-xl grid grid-cols-1 md:grid-cols-3 gap-lg">
+        <div class="col-span-1">
             <div class="flex items-center gap-xs mb-md">
-                <img alt="90 Plus Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLtXUy2gSpCb9upg21zHI1s-Jaw80-s1qQnchEF7A3bjtDRnSqQQTbx5I15IcgeUwX1vT9GPqMrSjZoDsXuwf91wUmFWgUuS_IXTyXJSsc8nafNPW-rYkOds4wSx-zByDXK-lLTcLF0PAkKynbzWNQOZANlYKzNrw9MQ4aD3kdmo-dO3AM83OY7u3wjumC7k2TOGVtOC2woJ0maenSVnjR4DwrGyjPBP673T69KsfVrbCNHzno0AydqUz0o"/>
-                <span class="text-headline-md font-headline-md font-bold text-on-surface">90 Plus</span>
+                <img alt="90 Plus Logo" class="h-10 w-auto" src="https://mytuitionapp.com/wp-content/uploads/2022/07/logo.png"/>
             </div>
             <p class="text-body-md text-on-surface-variant mb-md">
                 Empowering CBSE students in Bahrain with the world's first personalized chapter model tuition. Reliable, structured, and effective.
@@ -595,32 +644,13 @@
                 </p>
                 <p class="flex items-center gap-xs hover:text-primary transition-colors cursor-default">
                     <span class="material-symbols-outlined text-primary text-sm">phone</span>
-                    +973 17XX XXXX
+                    +973 3725 5933
                 </p>
                 <p class="flex items-center gap-xs hover:text-primary transition-colors cursor-default">
                     <span class="material-symbols-outlined text-primary text-sm">mail</span>
                     bahrain@mytuitionapp.com
                 </p>
             </address>
-        </div>
-        <div>
-            <h4 class="font-headline-md text-primary dark:text-primary-fixed-dim mb-md">Get the App</h4>
-            <div class="flex flex-col gap-sm">
-                <a class="bg-black text-white px-md py-sm rounded-lg flex items-center gap-sm hover:scale-[1.02] hover:shadow-lg transition-all border border-white/20" href="#">
-                    <span class="material-symbols-outlined text-3xl">play_apps</span>
-                    <div class="flex flex-col">
-                        <span class="text-[10px] leading-tight opacity-70">Download on</span>
-                        <span class="font-bold leading-tight">Google Play</span>
-                    </div>
-                </a>
-                <a class="bg-black text-white px-md py-sm rounded-lg flex items-center gap-sm hover:scale-[1.02] hover:shadow-lg transition-all border border-white/20" href="#">
-                    <span class="material-symbols-outlined text-3xl">apple</span>
-                    <div class="flex flex-col">
-                        <span class="text-[10px] leading-tight opacity-70">Download on</span>
-                        <span class="font-bold leading-tight">App Store</span>
-                    </div>
-                </a>
-            </div>
         </div>
     </div>
     <div class="border-t border-outline-variant/30 py-md text-center bg-surface-container">
@@ -639,6 +669,7 @@
         const swiper = new Swiper(".testimonialsSwiper", {
             slidesPerView: 1,
             spaceBetween: 24,
+            loop: true,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -657,7 +688,7 @@
 
         // 2. Counter Animation
         const counters = document.querySelectorAll('.counter');
-        const speed = 150; // The lower the faster
+        const speed = 150;
 
         const counterObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
