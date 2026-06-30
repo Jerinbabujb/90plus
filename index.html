@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>90 Plus Bahrain - CBSE Personalized Tuition</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#783200",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "tertiary-container": "#a24500",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "on-secondary-container": "#006f66",
+                        "secondary-container": "#86f2e4",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary-fixed-variant": "#005049",
+                        "secondary": "#006a61",
+                        "surface": "#f8f9ff",
+                        "on-primary-fixed": "#00174d",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "surface-variant": "#d9e3f4",
+                        "tertiary": "#7c3400",
+                        "surface-container": "#e5eeff",
+                        "outline-variant": "#c3c5d7",
+                        "on-secondary-fixed": "#00201d",
+                        "on-primary-fixed-variant": "#003dab",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbca",
+                        "primary-container": "#1a56db",
+                        "on-background": "#121c28",
+                        "primary": "#003fb1",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-high": "#dfe9fa",
+                        "inverse-primary": "#b5c4ff",
+                        "outline": "#737686",
+                        "on-primary-container": "#d4dcff",
+                        "on-surface": "#121c28",
+                        "surface-tint": "#1353d8",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#89f5e7",
+                        "on-surface-variant": "#434654",
+                        "surface-dim": "#d1dbec",
+                        "surface-container-highest": "#d9e3f4",
+                        "on-tertiary-container": "#ffd4bf",
+                        "inverse-surface": "#27313e",
+                        "background": "#f8f9ff",
+                        "surface-container-low": "#eef4ff",
+                        "on-tertiary-fixed": "#341100",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["JetBrains Mono"],
+                        "display": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .organic-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+        
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Swiper Customizations */
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.5) !important;
+        }
+        .swiper-pagination-bullet-active {
+            background: #ffffff !important;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: white !important;
+            transform: scale(0.7);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-md dark:bg-surface-container-lowest/90 border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none docked full-width top-0 sticky z-50 transition-all duration-300">
+    <nav class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-[72px]">
+        <div class="flex items-center gap-sm cursor-pointer hover:opacity-80 transition-opacity">
+            <img alt="90 Plus Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLtXUy2gSpCb9upg21zHI1s-Jaw80-s1qQnchEF7A3bjtDRnSqQQTbx5I15IcgeUwX1vT9GPqMrSjZoDsXuwf91wUmFWgUuS_IXTyXJSsc8nafNPW-rYkOds4wSx-zByDXK-lLTcLF0PAkKynbzWNQOZANlYKzNrw9MQ4aD3kdmo-dO3AM83OY7u3wjumC7k2TOGVtOC2woJ0maenSVnjR4DwrGyjPBP673T69KsfVrbCNHzno0AydqUz0o"/>
+            <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">90 Plus</span>
+        </div>
+        <div class="hidden md:flex items-center gap-lg">
+            <a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-md" href="#why-us">Why Us</a>
+            <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md" href="#subjects">Subjects</a>
+            <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md" href="#testimonials">Testimonials</a>
+            <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md" href="#locations">Locations</a>
+        </div>
+        <button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-95 duration-150">
+            Enroll Now
+        </button>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="relative min-h-[600px] flex items-center pt-xl pb-xl overflow-hidden bg-primary-container">
+    <div class="max-w-container-max mx-auto px-gutter w-full relative z-10 flex flex-col lg:flex-row gap-lg items-center">
+        <div class="lg:w-7/12 text-on-primary-container fade-up">
+            <h1 class="font-display text-display mb-md leading-tight">
+                World's First Personalized <br/><span class="text-secondary-fixed">Chapter Model</span> CBSE Tuition in Bahrain
+            </h1>
+            <p class="text-body-lg mb-lg opacity-90">
+                Specifically designed for CBSE students in Bahrain. Empowering learners with structured, reliable, and high-quality digital education tailored to their individual school pace.
+            </p>
+            <div class="flex flex-wrap gap-md">
+                <div class="flex items-center gap-sm glass-panel p-sm rounded-xl hover:-translate-y-1 transition-transform cursor-default">
+                    <span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="font-label-md text-white">Trust of 69K+ CBSE Students</span>
+                </div>
+                <div class="flex items-center gap-sm glass-panel p-sm rounded-xl hover:-translate-y-1 transition-transform cursor-default">
+                    <span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                    <span class="font-label-md text-white">Authorized Bahrain CBSE Hub</span>
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-5/12 w-full fade-up" style="transition-delay: 200ms;">
+            <div class="bg-white p-lg rounded-xl shadow-2xl border border-outline-variant transform hover:scale-[1.02] transition-transform duration-300">
+                <h3 class="font-headline-md text-primary mb-sm">Book a free class or talk to us first</h3>
+                <p class="text-body-md text-on-surface-variant mb-lg">Our Bahrain counsellor responds within 2 hours.</p>
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                    <div>
+                        <label class="block text-label-sm mb-xs text-on-surface">Parent's Name</label>
+                        <input class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Enter parent's name" type="text"/>
+                    </div>
+                    <div>
+                        <label class="block text-label-sm mb-xs text-on-surface">Student's Name</label>
+                        <input class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Enter student's name" type="text"/>
+                    </div>
+                    <div>
+                        <label class="block text-label-sm mb-xs text-on-surface">Child's Class</label>
+                        <select class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none">
+                            <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-label-sm mb-xs text-on-surface">WhatsApp Number</label>
+                        <input class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="+973 1234 5678" type="tel"/>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-label-sm mb-xs text-on-surface">What would you like?</label>
+                        <select class="w-full border-outline-variant bg-surface-bright rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none">
+                            <option>Book a free trial class</option><option>Talk to a counsellor first</option>
+                        </select>
+                    </div>
+                    <button class="md:col-span-2 w-full bg-[#f97316] text-white py-md rounded-lg font-headline-md hover:bg-[#ea580c] hover:shadow-lg transition-all active:scale-95">Request Free Trial / Callback →</button>
+                    <p class="md:col-span-2 text-[10px] text-center text-on-surface-variant mt-sm">By submitting, you agree to be contacted on WhatsApp. Protected by reCAPTCHA.</p>
+                </form>
+                <div class="mt-md pt-md border-t border-outline-variant text-center">
+                    <a class="inline-flex items-center gap-xs text-primary font-label-md hover:text-primary-container transition-colors" href="#">OR 💬 Chat with us on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wave Transition -->
+<div class="bg-primary-container h-16 w-full -mt-1" style="clip-path: ellipse(60% 100% at 50% 0%);"></div>
+
+<!-- About Us Section -->
+<section class="py-xl bg-surface fade-up">
+    <div class="max-w-container-max mx-auto px-gutter">
+        <div class="flex flex-col lg:flex-row gap-lg items-center">
+            <div class="lg:w-1/2 relative group">
+                <div class="organic-shape bg-primary/20 absolute -inset-6 z-0 transition-all duration-500 group-hover:bg-primary/30"></div>
+                <img alt="CBSE students learning online" class="relative z-10 w-full rounded-2xl shadow-lg border border-outline-variant transform transition-transform duration-500 group-hover:scale-[1.02]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuI0suj0aZ_wYDBmsXUTCqZ5oL1xBitQhZICFOV8LBmkOn5mN0UwcWWkshC_Ax1JOHgnJNDyM5Wjo2sHvl5Jec5HxHDkiHpFjMLu-AM5cT-6afXNRZ6FOYxysUzKz2SphFIe7y8jzK8tYkLK-BjROhnJE0bjJB3kD8k3UPVa3vfOpDrCU3OjaaFSKcCrUgO_PaxkfyPLLwUPO1_taCnN5nfGoUx9WFGkpbVZN7X7Sz-O3HCP2hJ46dlkO_mdYUL67TSwcH-goa8vU"/>
+            </div>
+            <div class="lg:w-1/2">
+                <h4 class="text-tertiary font-label-md mb-sm uppercase tracking-widest">Focused on Excellence</h4>
+                <h2 class="font-headline-lg text-on-surface mb-md">Leading <span class="text-primary">CBSE Tuition in Bahrain</span></h2>
+                <p class="text-body-md text-on-surface-variant mb-md leading-relaxed">
+                    90 Plus My Tuition App is a pioneer in digital education for the CBSE syllabus. Our platform offers a specialized three-teacher model, ensuring every student in Bahrain receives the personalized attention required to excel in their board exams.
+                </p>
+                <p class="text-body-md text-on-surface-variant mb-lg leading-relaxed">
+                    With our <strong>Digital Support Hub in Manama</strong>, we provide local expertise combined with global standards, making us the preferred choice for CBSE students across the Kingdom.
+                </p>
+                <div class="grid grid-cols-2 gap-md">
+                    <div class="border-l-4 border-primary pl-md py-sm bg-white shadow-sm hover:shadow-md transition-shadow rounded-r-lg">
+                        <span class="block font-headline-md text-primary">CBSE Focused</span>
+                        <span class="text-label-sm text-on-surface-variant">Tailored Curriculum</span>
+                    </div>
+                    <div class="border-l-4 border-secondary pl-md py-sm bg-white shadow-sm hover:shadow-md transition-shadow rounded-r-lg">
+                        <span class="block font-headline-md text-secondary">Authorized</span>
+                        <span class="text-label-sm text-on-surface-variant">Bahrain Education Hub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Subjects Covered Section -->
+<section class="py-xl bg-primary text-on-primary relative overflow-hidden fade-up" id="subjects">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 organic-shape -translate-y-1/2 translate-x-1/2"></div>
+    <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <div class="text-center mb-xl">
+            <h2 class="font-headline-lg mb-sm">Subjects Covered</h2>
+            <p class="text-body-md opacity-80">Comprehensive tuition for core CBSE subjects in Bahrain.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-md mb-xl">
+            <div class="flex flex-col items-center gap-sm group cursor-pointer">
+                <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <span class="material-symbols-outlined text-4xl">functions</span>
+                </div>
+                <span class="font-label-md group-hover:opacity-100 opacity-90 transition-opacity">Maths</span>
+            </div>
+            <div class="flex flex-col items-center gap-sm group cursor-pointer">
+                <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <span class="material-symbols-outlined text-4xl">science</span>
+                </div>
+                <span class="font-label-md group-hover:opacity-100 opacity-90 transition-opacity">Physics</span>
+            </div>
+            <div class="flex flex-col items-center gap-sm group cursor-pointer">
+                <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <span class="material-symbols-outlined text-4xl">experiment</span>
+                </div>
+                <span class="font-label-md group-hover:opacity-100 opacity-90 transition-opacity">Chemistry</span>
+            </div>
+            <div class="flex flex-col items-center gap-sm group cursor-pointer">
+                <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <span class="material-symbols-outlined text-4xl">biotech</span>
+                </div>
+                <span class="font-label-md group-hover:opacity-100 opacity-90 transition-opacity">Biology</span>
+            </div>
+            <div class="flex flex-col items-center gap-sm group cursor-pointer">
+                <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <span class="material-symbols-outlined text-4xl">translate</span>
+                </div>
+                <span class="font-label-md group-hover:opacity-100 opacity-90 transition-opacity">French</span>
+            </div>
+        </div>
+
+        <!-- AI Course Callout -->
+        <div class="max-w-3xl mx-auto bg-secondary-container/20 backdrop-blur-md border border-secondary-fixed/30 rounded-2xl p-lg flex flex-col md:flex-row items-center gap-lg hover:bg-secondary-container/30 transition-colors cursor-pointer">
+            <div class="w-16 h-16 bg-secondary-fixed text-on-secondary-fixed rounded-xl flex items-center justify-center shrink-0 shadow-lg">
+                <span class="material-symbols-outlined text-4xl">smart_toy</span>
+            </div>
+            <div>
+                <h3 class="font-headline-md text-secondary-fixed mb-xs">Complimentary AI Course</h3>
+                <p class="text-body-md opacity-90">All enrolled CBSE students get a free 8-month AI course in association with SchoolX to prepare for the future.</p>
+            </div>
+            <div class="shrink-0">
+                <span class="bg-secondary-fixed text-on-secondary-fixed px-md py-xs rounded-full text-label-sm font-bold uppercase tracking-widest shadow-md">Featured</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-xl bg-surface-container-low fade-up" id="why-us">
+    <div class="max-w-container-max mx-auto px-gutter">
+        <div class="text-center mb-xl">
+            <h2 class="font-headline-lg text-primary mb-sm text-display">Why Choose 90 Plus Bahrain?</h2>
+            <p class="text-body-md text-on-surface-variant">The most structured learning ecosystem for CBSE students.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md lg:gap-lg">
+            <!-- Points mapping -->
+            <div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-md">
+                    <span class="material-symbols-outlined">menu_book</span>
+                </div>
+                <h3 class="font-headline-md mb-sm">Aligned with School Syllabus</h3>
+                <p class="text-body-md text-on-surface-variant">Chapters perfectly aligned with your Bahrain school schedule; choose only what you need to study.</p>
+            </div>
+            <div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-md">
+                    <span class="material-symbols-outlined">bolt</span>
+                </div>
+                <h3 class="font-headline-md mb-sm">Double Power Tuition</h3>
+                <p class="text-body-md text-on-surface-variant">A unique approach: Learn the concepts on Day 1 and Master them through application on Day 2.</p>
+            </div>
+            <div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-tertiary/10 text-tertiary rounded-lg flex items-center justify-center mb-md">
+                    <span class="material-symbols-outlined">edit_note</span>
+                </div>
+                <h3 class="font-headline-md mb-sm">Online Exams &amp; Tracking</h3>
+                <p class="text-body-md text-on-surface-variant">Regular written exams held online with detailed performance tracking for parents and students.</p>
+            </div>
+            <div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-md">
+                    <span class="material-symbols-outlined">person_pin</span>
+                </div>
+                <h3 class="font-headline-md mb-sm">Dedicated Class Teacher</h3>
+                <p class="text-body-md text-on-surface-variant">Every student is assigned a dedicated class teacher for continuous academic and technical support.</p>
+            </div>
+            <div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-md">
+                    <span class="material-symbols-outlined">school</span>
+                </div>
+                <h3 class="font-headline-md mb-sm">Free 8-Month AI Course</h3>
+                <p class="text-body-md text-on-surface-variant">Exclusive AI curriculum in association with SchoolX, preparing students for the 21st-century workforce.</p>
+            </div>
+            <div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 bg-tertiary/10 text-tertiary rounded-lg flex items-center justify-center mb-md">
+                    <span class="material-symbols-outlined">groups</span>
+                </div>
+                <h3 class="font-headline-md mb-sm">Limited Class Size</h3>
+                <p class="text-body-md text-on-surface-variant">We maintain small batches to ensure better attention and interaction for every single learner.</p>
+            </div>
+            <div class="md:col-span-2 lg:col-span-3 bg-primary text-on-primary p-lg rounded-xl flex flex-col md:flex-row items-center gap-lg hover:shadow-xl transition-shadow cursor-pointer">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-4xl">auto_awesome</span>
+                </div>
+                <div>
+                    <h3 class="font-headline-md mb-xs">World-Class Academic Team</h3>
+                    <p class="text-body-md opacity-90">Learn from subject matter experts and seasoned CBSE educators with a proven track record of student success.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Stats (Counters) -->
+<section class="py-xl bg-primary-container relative z-20">
+    <div class="max-w-container-max mx-auto px-gutter">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-lg text-center" id="counter-section">
+            <div class="group">
+                <div class="text-display text-white mb-xs transition-transform duration-500 group-hover:scale-110 font-bold">
+                    <span class="counter" data-target="69">0</span>K+
+                </div>
+                <div class="font-label-md text-white/80 uppercase tracking-widest">CBSE Students</div>
+            </div>
+            <div class="group">
+                <div class="text-display text-white mb-xs transition-transform duration-500 group-hover:scale-110 font-bold">
+                    <span class="counter" data-target="2.7" data-is-float="true">0</span>K
+                </div>
+                <div class="font-label-md text-white/80 uppercase tracking-widest">Classes Completed</div>
+            </div>
+            <div class="group">
+                <div class="text-display text-white mb-xs transition-transform duration-500 group-hover:scale-110 font-bold">
+                    <span class="counter" data-target="98">0</span>%
+                </div>
+                <div class="font-label-md text-white/80 uppercase tracking-widest">Satisfaction Rate</div>
+            </div>
+            <div class="group">
+                <div class="text-display text-white mb-xs transition-transform duration-500 group-hover:scale-110 font-bold">
+                    <span class="counter" data-target="50">0</span>+
+                </div>
+                <div class="font-label-md text-white/80 uppercase tracking-widest">CBSE Experts</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section (Swiper Slider) -->
+<section class="bg-primary text-on-primary py-xl pb-24 relative overflow-hidden fade-up" id="testimonials">
+    <div class="max-w-container-max mx-auto px-gutter relative">
+        <h2 class="font-headline-lg text-center mb-xl text-display">Success Stories</h2>
+        
+        <!-- Swiper Container -->
+        <div class="swiper testimonialsSwiper">
+            <div class="swiper-wrapper">
+                <!-- Testimonial 1 -->
+                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-xs text-tertiary-fixed-dim mb-md">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        </div>
+                        <p class="text-body-md mb-lg italic">"90 Plus My Tuition App made Maths so easy for my 8th grader. His confidence in solving algebraic equations has doubled since he joined."</p>
+                    </div>
+                    <div class="flex items-center gap-md mt-auto">
+                        <div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden">
+                            <img alt="Sarah Jenkins" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoFg_Akzzk_bAZLL0l_F14sPnEliatPu8zqaUctqT3XL4fy42v9gFLMoHNQome6FsxfGp1YcwksVCK74awc8bbujs1qaGm6lp3mbzXs0o6xY3yZ9RUkfBcZGtSXYqkF_Zl6sCSH6Jyf1df8K7s09B4WKRfozdCuy79pe4yrTMr1RKNum6Udu-0dEwXp68IWWbldbbwyD1Fs2qjL6YTuZfdfGbjtTDuxDZMHHZuZjF2V8vbR7x1YpWNwJG3zis-6_QdMQx5B0paKK8"/>
+                        </div>
+                        <div>
+                            <p class="font-headline-md text-body-md">Sarah Jenkins</p>
+                            <p class="text-label-sm opacity-80">Parent of 8th Grade Student</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-xs text-tertiary-fixed-dim mb-md">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        </div>
+                        <p class="text-body-md mb-lg italic">"I was struggling with Science, but the live experiments shown on the app helped me visualize everything. I topped my 10th grade mid-terms!"</p>
+                    </div>
+                    <div class="flex items-center gap-md mt-auto">
+                        <div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden">
+                            <img alt="David Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgHAp7Pkj-GBz8KOCHbP1FyJxKtxq8aQWsc4s3iKbKqkdPqSXiafD3j-tQXQFivdWbxUJTl2icUvCpmWCFi-D5B83n-IkVfFUnlm30DbwyslugWnWqPZbT8t-Kg3TwgA70CrKy5UcXL2eF89Zo2OT0BJjfeACL3hfMJE4nFQR6Tzd7REWRy69gUOrErVc-tarOmKSFjveT0R7U9_pEUpvqNf8EOcVKxXEw896Rj3owmDyYgJFhg_-xn0kx0FDfgbKQsm3oCd7euUM"/>
+                        </div>
+                        <div>
+                            <p class="font-headline-md text-body-md">David Chen</p>
+                            <p class="text-label-sm opacity-80">10th Grade Student</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-xs text-tertiary-fixed-dim mb-md">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        </div>
+                        <p class="text-body-md mb-lg italic">"Finding a good tutor was hard until we found 90 Plus. My son actually looks forward to lessons now. Highly recommended."</p>
+                    </div>
+                    <div class="flex items-center gap-md mt-auto">
+                        <div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden">
+                            <img alt="Mark Thompson" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx_EddMKTmmnZWiHGW2M7EG_Cxsy614Gj1JWGNRtYNfuYAt2w7yiQ9DtVG50fSL7fqqEAjOK57nHqiYB7tfzuGOGhabcy6GxC-RsANfHbDbCgbRK85Z1uY-rxdr5IG73Z-iBL5dB9BUlZ5hd9_czXBceH3kEuQmrBqfi9pjU4EmKaf_vFmy1NBUaC45oPS9QZSpnN2SxndtTzlil-Rex8TD2ggaKsPkO3ex_qoHU59VMghjpBWv07byToDWPCzaTeo6533iilKa2k"/>
+                        </div>
+                        <div>
+                            <p class="font-headline-md text-body-md">Mark Thompson</p>
+                            <p class="text-label-sm opacity-80">Parent of 7th Grade Student</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 4 (Extra for sliding) -->
+                <div class="swiper-slide glass-panel p-lg rounded-xl h-auto flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-xs text-tertiary-fixed-dim mb-md">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        </div>
+                        <p class="text-body-md mb-lg italic">"The double power tuition method works wonders. Revising concepts right after learning them solidified my basics in Physics."</p>
+                    </div>
+                    <div class="flex items-center gap-md mt-auto">
+                        <div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden bg-white/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">person</span>
+                        </div>
+                        <div>
+                            <p class="font-headline-md text-body-md">Aarav Sharma</p>
+                            <p class="text-label-sm opacity-80">12th Grade Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination & Navigation -->
+            <div class="swiper-pagination mt-8"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Map & Locations Section -->
+<section class="py-xl bg-white fade-up" id="locations">
+    <div class="max-w-container-max mx-auto px-gutter">
+        <div class="flex flex-col md:flex-row gap-lg">
+            <div class="md:w-1/2">
+                <h2 class="font-headline-lg text-primary mb-md">Find Us in Bahrain</h2>
+                <p class="text-body-md text-on-surface-variant mb-lg">Visit our digital support hub for a live demo of the app and personalized CBSE guidance.</p>
+                <div class="space-y-lg">
+                    <div class="flex gap-md p-md bg-primary/5 rounded-xl border border-primary/10 hover:shadow-md transition-shadow">
+                        <span class="material-symbols-outlined text-primary text-3xl animate-bounce">location_on</span>
+                        <div>
+                            <h4 class="font-headline-md text-primary">Bahrain Digital Support Hub</h4>
+                            <p class="text-body-md mt-xs">Manama Tower, Diplomatic Area, Floor 6, Manama, Kingdom of Bahrain.</p>
+                            <p class="text-label-sm font-bold text-primary mt-sm">+973 17XX XXXX</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-md opacity-80">
+                        <div class="p-md bg-surface-container rounded-xl border border-outline-variant hover:bg-surface-variant transition-colors">
+                            <h5 class="font-label-md">Regional Office: UAE</h5>
+                            <p class="text-label-sm">Dubai Digital Plaza, 4th Floor</p>
+                        </div>
+                        <div class="p-md bg-surface-container rounded-xl border border-outline-variant hover:bg-surface-variant transition-colors">
+                            <h5 class="font-label-md">Regional Office: KSA</h5>
+                            <p class="text-label-sm">Riyadh Hub, Olaya District</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 min-h-[400px] bg-surface-variant rounded-2xl overflow-hidden shadow-inner border border-outline-variant">
+                <div class="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 bg-cover bg-center transform hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkGq1m6wwYrrOZ7qVH2Bupcody59wWhJogBm-FjM2A153A44-ordYoi56UPJIyJ1qlG6pcOR60L6FNDt8HLJzbCDHtmcTK4ah0YvGe4V5tmPpEaGYTS6ZPDEz-vDmt6sL8yVy8gpufd9fjtkhX3jbHQbMB_BaGW-XOFZrOC_Z2DMrlXMCUkdnqGf198AWeZ38zF6So2tYDGQLHTRF9OW8XHU4ektg3FsIKGoVfn4Jk3aA6S1ckyjZ0iXwzq47jauONjR0-0k_eYh4')"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-surface-container-lowest border-t border-outline-variant">
+    <div class="max-w-container-max mx-auto px-gutter py-xl grid grid-cols-1 md:grid-cols-4 gap-lg">
+        <div class="col-span-1 md:col-span-1">
+            <div class="flex items-center gap-xs mb-md">
+                <img alt="90 Plus Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLtXUy2gSpCb9upg21zHI1s-Jaw80-s1qQnchEF7A3bjtDRnSqQQTbx5I15IcgeUwX1vT9GPqMrSjZoDsXuwf91wUmFWgUuS_IXTyXJSsc8nafNPW-rYkOds4wSx-zByDXK-lLTcLF0PAkKynbzWNQOZANlYKzNrw9MQ4aD3kdmo-dO3AM83OY7u3wjumC7k2TOGVtOC2woJ0maenSVnjR4DwrGyjPBP673T69KsfVrbCNHzno0AydqUz0o"/>
+                <span class="text-headline-md font-headline-md font-bold text-on-surface">90 Plus</span>
+            </div>
+            <p class="text-body-md text-on-surface-variant mb-md">
+                Empowering CBSE students in Bahrain with the world's first personalized chapter model tuition. Reliable, structured, and effective.
+            </p>
+            <div class="flex gap-sm">
+                <a class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-sm">face</span></a>
+                <a class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-sm">camera</span></a>
+                <a class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-sm">smart_display</span></a>
+            </div>
+        </div>
+        <div>
+            <h4 class="font-headline-md text-primary dark:text-primary-fixed-dim mb-md">Links</h4>
+            <ul class="space-y-sm">
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm inline-block hover:translate-x-1 transform duration-200" href="#">Contact Us</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm inline-block hover:translate-x-1 transform duration-200" href="#">Privacy Policy</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm inline-block hover:translate-x-1 transform duration-200" href="#">Terms of Service</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm inline-block hover:translate-x-1 transform duration-200" href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-headline-md text-primary dark:text-primary-fixed-dim mb-md">Bahrain Office</h4>
+            <address class="not-italic space-y-sm text-label-sm text-on-surface-variant">
+                <p class="flex items-start gap-xs hover:text-primary transition-colors cursor-default">
+                    <span class="material-symbols-outlined text-primary text-sm">location_on</span>
+                    Diplomatic Area, Manama, Bahrain
+                </p>
+                <p class="flex items-center gap-xs hover:text-primary transition-colors cursor-default">
+                    <span class="material-symbols-outlined text-primary text-sm">phone</span>
+                    +973 17XX XXXX
+                </p>
+                <p class="flex items-center gap-xs hover:text-primary transition-colors cursor-default">
+                    <span class="material-symbols-outlined text-primary text-sm">mail</span>
+                    bahrain@mytuitionapp.com
+                </p>
+            </address>
+        </div>
+        <div>
+            <h4 class="font-headline-md text-primary dark:text-primary-fixed-dim mb-md">Get the App</h4>
+            <div class="flex flex-col gap-sm">
+                <a class="bg-black text-white px-md py-sm rounded-lg flex items-center gap-sm hover:scale-[1.02] hover:shadow-lg transition-all border border-white/20" href="#">
+                    <span class="material-symbols-outlined text-3xl">play_apps</span>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] leading-tight opacity-70">Download on</span>
+                        <span class="font-bold leading-tight">Google Play</span>
+                    </div>
+                </a>
+                <a class="bg-black text-white px-md py-sm rounded-lg flex items-center gap-sm hover:scale-[1.02] hover:shadow-lg transition-all border border-white/20" href="#">
+                    <span class="material-symbols-outlined text-3xl">apple</span>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] leading-tight opacity-70">Download on</span>
+                        <span class="font-bold leading-tight">App Store</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-outline-variant/30 py-md text-center bg-surface-container">
+        <p class="text-label-sm text-on-surface-variant">© 2024 90 Plus My Tuition App Bahrain. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- Custom Scripts -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        // 1. Initialize Swiper Slider
+        const swiper = new Swiper(".testimonialsSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 1.5, spaceBetween: 24 },
+                768: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 32 },
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            grabCursor: true
+        });
+
+        // 2. Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 150; // The lower the faster
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseFloat(counter.getAttribute('data-target'));
+                    const isFloat = counter.getAttribute('data-is-float') === 'true';
+                    
+                    const updateCount = () => {
+                        const count = parseFloat(counter.innerText);
+                        const increment = target / speed;
+
+                        if (count < target) {
+                            if (isFloat) {
+                                counter.innerText = (count + increment).toFixed(1);
+                            } else {
+                                counter.innerText = Math.ceil(count + increment);
+                            }
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // 3. Scroll Fade-Up Animations
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+    });
+</script>
+</body>
+</html>
